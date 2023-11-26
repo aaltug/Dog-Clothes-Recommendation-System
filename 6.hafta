@@ -1,1 +1,80 @@
+import os
+import numpy as np
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import euclidean_distances
+from tensorflow.keras.models import Model
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+def extract_features(image_path):
+    img = image.load_img(image_path, target_size=(224, 224))
+    img_array = image.img_to_array(img)
+    img_array = np.expand_dims(img_array, axis=0)
+    img_array = preprocess_input(img_array)
+    features = model.predict(img_array)
+    return features.flatten()
+
+
+
+base_model = VGG16(weights='imagenet')
+model = Model(inputs=base_model.input, outputs=base_model.get_layer('fc2').output)
+
+# Kıyafet resimlerinin bulunduğu klasörü belirt
+image_folder = "/content/sample_data/UntitledFolder"
+
+# Kıyafet resimlerinin listesini al
+image_files = [f for f in os.listdir(image_folder) if f.endswith('.jpg') or f.endswith('.png')]
+
+features = []
+for image_file in image_files:
+    image_path = os.path.join(image_folder, image_file)
+    feature_vector = extract_features(image_path)
+    features.append(feature_vector)
+
+# Benzerlik matrisini oluştur
+cosine_similarities = cosine_similarity(features, features)
+
+threshold_cosine = 0.8  # Cosine benzerliği için belirlediğiniz bir eşik değeri
+
+similar_items_cosine = np.where(cosine_similarities > threshold_cosine)
+
+# Benzer kıyafetleri yazdırır ve görsel olarak gösterir
+for i, j in zip(similar_items_cosine[0], similar_items_cosine[1]):
+    if i != j:
+        print(f"Benzer kıyafetler: {image_files[i]} ve {image_files[j]}")
+
+        img1 = mpimg.imread(os.path.join(image_folder, image_files[i]))
+        img2 = mpimg.imread(os.path.join(image_folder, image_files[j]))
+
+        plt.figure(figsize=(8, 4))
+        plt.subplot(1, 2, 1)
+        plt.imshow(img1)
+        plt.title(f"Benzer Kıyafet: {image_files[i]}")
+
+        plt.subplot(1, 2, 2)
+        plt.imshow(img2)
+        plt.title(f"Benzer Kıyafet: {image_files[j]}")
+
+        plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
