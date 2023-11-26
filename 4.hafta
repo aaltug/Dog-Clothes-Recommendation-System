@@ -1,1 +1,35 @@
 Projenin önergesi oluşturuldu.
+1. Project Title
+Dog Clothes Recommendation System Based on Convolutional Neural Networks
+2. Project Description
+The project aims to develop a machine learning model that recommends dog clothes based on a proprietary dataset of dog clothing products. The recommendation system will use Convolutional Neural Networks (CNNs) to identify dog clothing items that are most similar to a human clothing combination and recommend the best match from the dataset.
+3. Project Goals
+The main objectives of this project are as follows:
+Create a custom dataset of dog clothing items.
+Design and implement Convolutional Neural Network for image recognition.
+Train CNN on custom dataset.
+Develop a recommendation system that uses trained CNN to recommend the dog clothing item most similar to a human clothing combination.
+Evaluate the performance of the recommendation system through various metrics such as accuracy, precision, and recall.
+4. Methodology
+The project will be divided into the following phases:
+Collect a diverse dataset of dog clothing products, including a variety of styles, colors, and sizes.
+Add relevant information to the dataset, such as clothing type and features.
+Design a CNN architecture suitable for image recognition.
+Pre-process and augment the dataset for model training.
+Train the CNN on the prepared dataset.
+Develop a recommendation system that takes an image of a human clothing combination and uses trained CNN to find the most similar dog clothing items.
+Evaluate the performance of the recommendation system using relevant evaluation metrics.
+Fine-tune the model and system based on user feedback and evaluation results.
+5. Expected Results
+The expected results after successful completion of the project are as follows:
+A machine learning model that can recognize human clothing products and recommend dog products.
+An interactive recommendation system for dog owners to find suitable clothing for their pets.
+6. Conclusion
+The proposed project will result in a practical recommendation system for dog owners looking for suitable clothing for their pets. Using CNNs for image recognition will improve user experience and satisfaction by providing accurate and personalized recommendations.
+7. The intended data source(s):
+https://tr.aliexpress.com/w/wholesale-dog-clothes.html?catId=0&initiative_id=AS_20231022095919&SearchText=dog+clothes&spm=a2g0o.productlist.1000002.0
+https://www.trendyol.com/sr?wc=103614&os=1&sk=1
+8. A list of related papers:
+https://geekflare.com/outfit-planner-apps/
+https://www.myindyx.com/blog/the-best-wardrobe-apps
+https://thetechfashionista.com/outfit-planning-apps/
