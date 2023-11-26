@@ -21,10 +21,10 @@ def extract_features(image_path):
 base_model = VGG16(weights='imagenet')
 model = Model(inputs=base_model.input, outputs=base_model.get_layer('fc2').output)
 
-# Kıyafet resimlerinin bulunduğu klasörü belirt
+# Kıyafet resimlerinin bulunduğu klasör
 image_folder = "/content/sample_data/UntitledFolder"
 
-# Kıyafet resimlerinin listesini al
+# Kıyafet resimlerinin listesi
 image_files = [f for f in os.listdir(image_folder) if f.endswith('.jpg') or f.endswith('.png')]
 
 features = []
