@@ -1,3 +1,5 @@
+Improvements were made to the code.
+A survey research was conducted to ensure the similarity of the results.
 import os
 import numpy as np
 from tensorflow.keras.preprocessing import image
