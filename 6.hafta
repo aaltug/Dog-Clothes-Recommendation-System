@@ -1,3 +1,4 @@
+A code using VGG16 and cv2 techniques was written and tested.
 import os
 import numpy as np
 from tensorflow.keras.preprocessing import image
@@ -15,8 +16,6 @@ def extract_features(image_path):
     img_array = preprocess_input(img_array)
     features = model.predict(img_array)
     return features.flatten()
-
-
 
 base_model = VGG16(weights='imagenet')
 model = Model(inputs=base_model.input, outputs=base_model.get_layer('fc2').output)
@@ -58,23 +57,3 @@ for i, j in zip(similar_items_cosine[0], similar_items_cosine[1]):
         plt.title(f"Benzer Kıyafet: {image_files[j]}")
 
         plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
