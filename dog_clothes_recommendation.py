@@ -49,7 +49,7 @@ def find_most_similar_clothing(input_clothing_path, clothing_folder):
             clothing_img_path = os.path.join(clothing_folder, clothing_img_path)     # Hedef fotoğrafın tam yolu alınır.
             clothing_img = preprocess_image(clothing_img_path)     # Hedef fotoğraf preprocess fonkiyonu ile işlenir.
             clothing_vgg16_features = get_vgg16_features(clothing_img)     # Hedef fotoğrafın özellik vektörü çıkarılır.
-            clothing_hist = calculate_color_histogram(clothing_img_path)enk     # Hedef fotoğrafın histogramı hesaplanır.
+            clothing_hist = calculate_color_histogram(clothing_img_path)     # Hedef fotoğrafın histogramı hesaplanır.
 
             vgg16_similarity = np.dot(input_clothing_vgg16_features, clothing_vgg16_features) / (
                     np.linalg.norm(input_clothing_vgg16_features) * np.linalg.norm(clothing_vgg16_features))
